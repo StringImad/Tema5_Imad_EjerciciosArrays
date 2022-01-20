@@ -16,6 +16,9 @@ public class Ejer2 {
         //Declaracion de variables
         int numeroDePersonas;
         int alturaPersona;
+        int numPersonasMayorMedia = 0;
+        int numPersonasIgualMedia = 0;
+        int numPersonasMenorMedia = 0;
         double media = 0.0;
 
         int[] alturasLeidas;
@@ -36,14 +39,20 @@ public class Ejer2 {
 
         }
         media = media / alturasLeidas.length;
-        
-        System.out.println("Media de altura es: "+media);
+
+        System.out.println("Media de altura es: " + media);
         for (int alturasLeida : alturasLeidas) {
-                    if(alturasLeida<media){
-                        
-                    }
+            if (alturasLeida < media) {
+                numPersonasMenorMedia++;
+            } else if (alturasLeida == media) {
+
+            } else {
+                numPersonasMayorMedia++;
+            }
 
         }
-
+        System.out.println("El numero de personas con una altura mayor que la media es: " + numPersonasMayorMedia
+                + " \nnumero de personas menor de la media: " + numPersonasMenorMedia + "\n"
+                + "numero de personas igual que la media: " + numPersonasIgualMedia);
     }
 }
