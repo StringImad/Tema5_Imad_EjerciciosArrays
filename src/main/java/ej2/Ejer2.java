@@ -31,10 +31,9 @@ public class Ejer2 {
         alturasLeidas = new int[numeroDePersonas];
 
         for (int i = 0; i < alturasLeidas.length; i++) {
-            System.out.println("Introduce la altura en cm de la persona en la posicion: " + i);
+            System.out.println("Introduce la altura en cm de la persona en la posicion: " + (i + 1));
             alturaPersona = teclado.nextInt();
-            Math.abs(alturaPersona);
-            alturasLeidas[i] = alturaPersona;
+            alturasLeidas[i] = Math.abs(alturaPersona);
             media = media + alturasLeidas[i];
 
         }
@@ -45,11 +44,10 @@ public class Ejer2 {
             if (alturasLeida < media) {
                 numPersonasMenorMedia++;
             } else if (alturasLeida == media) {
-
+                numPersonasIgualMedia++;
             } else {
                 numPersonasMayorMedia++;
             }
-
         }
         System.out.println("El numero de personas con una altura mayor que la media es: " + numPersonasMayorMedia
                 + " \nnumero de personas menor de la media: " + numPersonasMenorMedia + "\n"
