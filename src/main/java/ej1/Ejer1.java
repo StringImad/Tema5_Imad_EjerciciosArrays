@@ -15,10 +15,7 @@ public class Ejer1 {
         int suma = 0;
         for (int i = 0; i < numeros.length; i++) {
             System.out.println(numeros[i]);
-        }
-
-        for (int i = 0; i < numeros.length; i++) {
-            suma += numeros[i];
+             suma += numeros[i];
         }
         System.out.println("--------------suma-------------");
 
