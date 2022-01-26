@@ -27,10 +27,10 @@ public class Ejer7 {
         inicializacionDeArraysConNumerosAleatorios(array2);
         System.out.println("-----------Array 1-------------");
         mostrarArray(array1);
-        System.out.println("-----------Array 2-------------");
+        System.out.println("\n-----------Array 2-------------");
 
         mostrarArray(array2);
-        System.out.println("----------Multiplicando arrays--------");
+        System.out.println("\n----------Multiplicando arrays--------");
         
         mostrarArray(multiplicarArrays(array1, array2));
         
@@ -55,7 +55,7 @@ public class Ejer7 {
 
     private static void mostrarArray(int[] arrayRecibe) {
         for (int i : arrayRecibe) {
-            System.out.println(i);
+            System.out.print(i+" - ");
         }
     }
 
