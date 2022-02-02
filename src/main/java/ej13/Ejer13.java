@@ -14,30 +14,29 @@ import java.util.Scanner;
 public class Ejer13 {
 
     public static void main(String[] args) {
+
         int[] arrayHistograma = new int[20];
         Scanner teclado = new Scanner(System.in);
-        int datoIntroducido;
-        boolean repetir = true;
-        for (int i = 0; i < 20; i++) {
+        int valorIntroducido;
+
+        do {
             do {
-                System.out.println("Introduce el valor de la posicion " + (i + 1));
-                datoIntroducido = teclado.nextInt();
-                if ((datoIntroducido < 20 && datoIntroducido > 0)) {
-                    repetir = false;
-                }
-            } while (repetir);
-            if (datoIntroducido == 0) {
-                break;
+                System.out.println("Introduce el valor: ");
+                valorIntroducido = teclado.nextInt();
+            } while (valorIntroducido < 0 || valorIntroducido > 20);
+            if (valorIntroducido != 0) {
+                arrayHistograma[valorIntroducido - 1]++;
             }
-            arrayHistograma[i] = datoIntroducido;
-        }
+
+        } while (valorIntroducido != 0);
+
         for (int i = 0; i < 20; i++) {
             System.out.print((i + 1) + ": ");
-            String asterisco = "";
+            String asteriscos = "";
             for (int j = 0; j < arrayHistograma[i]; j++) {
-                asterisco = asterisco + "*";
+                asteriscos = asteriscos + "*";
             }
-            System.out.print(asterisco + "\n");
+            System.out.print(asteriscos + "\n");
         }
     }
 }
