@@ -14,6 +14,8 @@ import java.util.Scanner;
  */
 public class LanzarMoneda {
 
+    private static boolean[] arrayBooleanos;
+
     public static void main(String[] args) {
         //Declaracion de variables
         int tamArray;
@@ -22,27 +24,24 @@ public class LanzarMoneda {
         //Declaracion de array con tamanio 1000
         System.out.println("Inserta el numero de lanzamientos");
         tamArray = teclado.nextInt();
-        boolean[] arrayBooleanos = new boolean[tamArray];
-  
-       
+        arrayBooleanos = new boolean[tamArray];
+
         rellenarArrayConLanzamientos(arrayBooleanos);
         imprimirArray(arrayBooleanos);
     }
 //simula 1000 lanzamientos de una moneda. 
 //El método  almacenael resultado de cada tirada en el array. 
+
     private static void rellenarArrayConLanzamientos(boolean[] array) {
+        Random aleatorio = new Random();
 
         for (int i = 0; i < array.length; i++) {
-            array[i] = booleanoAleatorio();
+            array[i] =aleatorio.nextBoolean();
         }
     }
 
     private static boolean booleanoAleatorio() {
-        if (generadorNumeroAleatorioEntreDosRangos(1, 2) == 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return generadorNumeroAleatorioEntreDosRangos(1, 2) == 1;
 
     }
 
@@ -62,6 +61,7 @@ public class LanzarMoneda {
         return contadorDeCruces;
     }
 //método para saber cuántas “caras” salieron después de los lanzamientos.
+
     private static int contadorDeCarasEnElArray(boolean[] arrayRecibido) {
         int contadorDeCaras = 0;
         for (int i = 0; i < arrayRecibido.length; i++) {
@@ -75,7 +75,7 @@ public class LanzarMoneda {
     private static void imprimirArray(boolean[] arrayRecibido) {
 
         for (int i = 0; i < arrayRecibido.length; i++) {
-            System.out.print("Lanzamiento "+(i+1)+": ");
+            System.out.print("Lanzamiento " + (i + 1) + ": ");
             if (arrayRecibido[i] == true) {
                 System.out.println("cara");
             } else {
