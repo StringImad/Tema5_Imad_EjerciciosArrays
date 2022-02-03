@@ -36,7 +36,7 @@ public class LanzarMoneda {
         Random aleatorio = new Random();
 
         for (int i = 0; i < array.length; i++) {
-            array[i] =aleatorio.nextBoolean();
+            array[i] = aleatorio.nextBoolean();
         }
     }
 

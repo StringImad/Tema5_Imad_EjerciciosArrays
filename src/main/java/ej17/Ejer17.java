@@ -23,11 +23,16 @@ public class Ejer17 {
 
         System.out.println("Introduce un string");
         stringLeido = teclado.nextLine();
+        
+        //Pasamos el string a minusculas
         leidoMinus = stringLeido.toLowerCase();
+        //Creamos el array con el tamanyo del string
         char[] arrayDeChars = new char[leidoMinus.length()];
+        //Rellenamos el array con el las letras de cada palabra
         for (int i = 0; i < arrayDeChars.length; i++) {
             arrayDeChars[i] = leidoMinus.charAt(i);
         }
+        //Imprime el array
         for (char arrayDeChar : arrayDeChars) {
             System.out.println(arrayDeChar);
         }
