@@ -66,7 +66,6 @@ public class ListaLibros {
             }
         }
         return listaDevuelta;
-        
     }
 
     //Eliminar libro
