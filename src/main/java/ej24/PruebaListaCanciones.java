@@ -17,5 +17,7 @@ public class PruebaListaCanciones {
         lista.grabarCancion(new Cancion("Hdd", "Bw", "5min", 2222));
         lista.grabarCancion(new Cancion("Hddd", "Bdd", "5min", 2222));
         ListaReproduccion.imprimirLista(lista);
+        System.out.println("------------For normal------------------");
+       ListaReproduccion.imprimirListaForNormal(lista);
     }
 }

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * @author imad
  */
 public class ListaReproduccion {
-    
+
     private ArrayList<Cancion> listaCanciones;
 //Condtructor por defecto crea e inicializa la lista
 
@@ -50,29 +50,38 @@ public class ListaReproduccion {
     public boolean eleminarCancion(int posicion) {
         return listaCanciones.remove(listaCanciones.get(posicion));
     }
-    
+
     public boolean eleminarCancion(Cancion cancion) {
         return listaCanciones.remove(cancion);
-        
+
     }
-    
+
     public static void imprimirLista(ListaReproduccion tmp) {
-        
+
         for (Cancion canciones : tmp.listaCanciones) {
             System.out.println(canciones.getTitulo());
         }
-        
+
     }
+
+    // imprimirLista (ListaReproduccion tmp). Método de clase que imprime los 
+    // nombres de las canciones contenidas en tmp
+    public static void imprimirListaForNormal(ListaReproduccion tmp) {
+        for (int i = 0; i < tmp.numeroCanciones(); i++) {
+            System.out.println(tmp.listaCanciones.get(i).getTitulo());
+        }
+    }
+
     // busca la canción c en la lista de reproducción y devuelve la posición en la que se encuentra.
     public int buscarCancion(Cancion c) {
-        
+
         return listaCanciones.indexOf(c);
-        
+
     }
-    
+
     @Override
     public String toString() {
         return "ListaReproduccion{" + "listaCanciones=" + listaCanciones + '}';
     }
-    
+
 }
