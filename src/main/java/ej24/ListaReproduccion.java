@@ -5,6 +5,8 @@
 package ej24;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -72,11 +74,40 @@ public class ListaReproduccion {
         }
     }
 
+    public static void imprimirListaEntera(ListaReproduccion tmp) {
+        for (int i = 0; i < tmp.numeroCanciones(); i++) {
+            System.out.println(tmp.listaCanciones.get(i));
+        }
+    }
+
     // busca la canción c en la lista de reproducción y devuelve la posición en la que se encuentra.
     public int buscarCancion(Cancion c) {
 
         return listaCanciones.indexOf(c);
 
+    }
+
+    public void ordenarPorDuracion() {
+        Collections.sort(this.listaCanciones);
+    }
+
+    public void ordenarComparatorNombre() {
+        Collections.sort(listaCanciones, (Cancion l1, Cancion l2) -> l1.getTitulo().compareTo(l2.getTitulo()));
+    }
+
+    public void ordenarTituloDuracion() {
+        Comparator<Cancion> criterioTitulo = (l1, l2) -> l1.getTitulo().compareTo(l2.getTitulo());
+        Comparator<Cancion> criterioDuracion = (l1, l2) -> l1.getDuracion().compareTo(l2.getDuracion());
+        //Criterio que los unifica, then comparing nos devuelve otro comparator
+        Comparator<Cancion> criterioTituloDuracion = criterioTitulo.thenComparing(criterioDuracion);
+        Collections.sort(listaCanciones, criterioTituloDuracion);
+    }
+    public void mezclarLista(){
+        Collections.shuffle(listaCanciones);
+    }
+    public int buscarBinariaTitulo(Cancion c){
+        //lista debe estar ordenada segun el criterio que se pasa a este metodo 
+        return Collections.binarySearch(listaCanciones, c, (l1, l2) -> l1.getTitulo().compareTo(l2.getTitulo()));
     }
 
     @Override

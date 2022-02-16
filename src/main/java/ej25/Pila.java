@@ -18,7 +18,7 @@ public class Pila {
     public Pila(int tamanio) {
         tamLista = tamanio;
         this.lista = new ArrayList<>(tamLista);
-        
+
     }
 
     public void apilar(char recibido) {
@@ -34,11 +34,12 @@ public class Pila {
     public boolean estaVacia() {
         return lista.isEmpty();
     }
+
     public boolean estaLlena() {
         return lista.size() == tamLista;
     }
 
-    public int numeroActualDeLaPila(){
+    public int numeroActualDeLaPila() {
         return lista.size();
     }
 
@@ -48,4 +49,22 @@ public class Pila {
         }
     }
 
+    public void rellenar(char[] array) {
+        lista.clear();
+        for (int i = 0; i < array.length; i++) {
+            lista.add(array[i]);
+        }
+
+    }
+
+    public char[] sacarElementos() {
+        char[] arraySacado = new char[tamLista];
+
+        for (int i = 0; i < arraySacado.length; i++) {
+            arraySacado[i] = lista.get(i);
+
+        }
+
+        return arraySacado;
+    }
 }

@@ -10,7 +10,7 @@ import java.util.Objects;
  *
  * @author imad
  */
-public class Cancion {
+public class Cancion implements Comparable<Cancion>{
     private String autor;
     private String titulo;
     private String duracion;
@@ -96,6 +96,13 @@ public class Cancion {
     public String toString() {
         return "Cancion{" + "autor=" + autor + ", titulo=" + titulo + ", duracion=" + duracion + ", reproducciones=" + reproducciones +"\n"+ '}';
     }
+
+    @Override
+    public int compareTo(Cancion arg0) {
+        return this.getDuracion().compareTo(arg0.getDuracion());
+    }
     
+
+  
     
 }
