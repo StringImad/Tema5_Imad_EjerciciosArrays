@@ -22,7 +22,7 @@ public class Avion {
         matriz = new char[25][4];
         inicializacionDeAsientosVacios(matriz);
     }
-
+//metodo privado estatico que inicializa todas las posiciones del array en un char Vacio
     private static void inicializacionDeAsientosVacios(char[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
@@ -31,13 +31,12 @@ public class Avion {
             }
         }
     }
-
+//metodo publico que recibe un string de los asientos a modificar y 
     public void modificadorAsientos(String numAsientoRecibido) {
         int numi, numj;
         String[] numAsiento = numAsientoRecibido.split("\\,");
         numi = Integer.parseInt(numAsiento[0]);
         numj = Integer.parseInt(numAsiento[1]);
-        String numFinal = numi + "" + numj;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if ((numi-1)==i&&(numj-1)==j) {
@@ -52,7 +51,6 @@ public class Avion {
         String[] numAsiento = numAsientoRecibido.split("\\,");
         numi = Integer.parseInt(numAsiento[0]);
         numj = Integer.parseInt(numAsiento[1]);
-        String numFinal = numi + "" + numj;
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if ((numi-1)==i&&(numj-1)==j) {
@@ -63,14 +61,10 @@ public class Avion {
     }
     public void imprimir() {
         int contador = 1;
-        char letra = 97;
         System.out.println("  1 2 3 4");
         for (int i = 0; i < matriz.length; i++) {
             System.out.print("" + contador + "|");
-
             for (int j = 0; j < matriz[i].length; j++) {
-                //Hacemos una conversión explícita para pasar de int a char
-                //y así imprimimos correctamente las letras
                 char asiento = matriz[i][j];
                 System.out.print(asiento + "|");
             }

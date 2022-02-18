@@ -45,6 +45,16 @@ public class ejer14 {
         media = media / longitud;
 
         System.out.println("La media es: " + media);
+   for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[i].length; j++) {
+                if(matriz[i][j]>Integer.MIN_VALUE){
+                    
+                }
 
+            }
+            longitud += matriz.length;
+
+            System.out.println("");
+        }
     }
 }

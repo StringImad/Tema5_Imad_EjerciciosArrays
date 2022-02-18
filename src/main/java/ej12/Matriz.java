@@ -16,18 +16,18 @@ public class Matriz {
     private static int[][] matriz;
 
     public Matriz(int[][] matriz) {
-
+        this.matriz = matriz;
+        inicializacionDeArraysConNumerosAleatorios(matriz);
     }
 
     public Matriz() {
-        matriz = new int[5][5];
-       inicializacionDeArraysConNumerosAleatorios(matriz);
+        matriz = new int[2][3];
+        inicializacionDeArraysConNumerosAleatorios(matriz);
     }
 
     public int[][] getMatriz() {
         return matriz;
     }
-
 
     private static void inicializacionDeArraysConNumerosAleatorios(int[][] array) {
         for (int i = 0; i < array.length; i++) {
@@ -38,19 +38,15 @@ public class Matriz {
         }
     }
 
-     public void imprimir() {
+    public void imprimir() {
         for (int i = 0; i < matriz.length; i++) {
 
             for (int j = 0; j < matriz[i].length; j++) {
-                //Hacemos una conversión explícita para pasar de int a char
-                //y así imprimimos correctamente las letras
-                int letra = matriz[i][j];
-                System.out.print(letra + "|");
+                System.out.print(matriz[i][j] + "|");
             }
             System.out.println("");
         }
     }
-
 
     public void setMatriz(int[][] matriz) {
         this.matriz = matriz;

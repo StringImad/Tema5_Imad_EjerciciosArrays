@@ -13,16 +13,14 @@ import java.util.Scanner;
  */
 public class Prueba {
 
+    private static Scanner teclado = new Scanner(System.in);
     public static void main(String[] args) {
         //declaracion de objeto
         Avion airbus = new Avion();
-        Scanner teclado = new Scanner(System.in);
         //Declaracion de variable
         int opcionElegida;
         //Boolean de salida del menu
         boolean salir = true;
-        boolean compNum = true;
-
         do {
             System.out.println("bienvenido al menu\n¿Que desea realizar?\n"
                     + "1.- Reservar\n"
@@ -34,24 +32,11 @@ public class Prueba {
             switch (opcionElegida) {
                 case 1:
                     airbus.imprimir();
-
-                    String asiento;
-                    do {
-                        System.out.println("El formato a seguir es: numero,numero\n"
-                                + "Introduce el asiento que desea reservar: ");
-                        asiento = teclado.nextLine();
-                  
-                    } while (compNum);
-                    airbus.modificadorAsientos(asiento);
+                    airbus.modificadorAsientos(comprobadorAsientoCorrecto());
                     break;
                 case 2:
                     airbus.imprimir();
-
-                    String asientoCancelado;
-                    System.out.println("El formato a seguir es: letra,numero\n"
-                            + "Introduce el asiento que desea cancelar: ");
-                    asientoCancelado = teclado.nextLine();
-                    airbus.modificadorAsientosCancelar(asientoCancelado);
+                    airbus.modificadorAsientosCancelar(comprobadorAsientoCorrecto());
                     break;
                 case 3:
                     airbus.imprimir();
@@ -64,9 +49,19 @@ public class Prueba {
 
     }
 
+    private static String comprobadorAsientoCorrecto() {
+        String asiento;
+        String patron = "([10-25]||[0-9]\\,[1-4]{1})";
+        do {
+            System.out.println("El formato a seguir es: Fila numero,Columna numero(00-25,1-4)\n"
+                    + "Introduce el asiento que desea reservar: ");
+            asiento = teclado.nextLine();
+        } while (!asiento.matches(patron));
+        return asiento;
+    }
+
     //metodo que utilizamos para introduir un numer entro y comprueba si es valido, si lo es lo devuelve
     private static int ComprobadorIntroduccionInt() {
-        Scanner teclado = new Scanner(System.in);
         int numeroIntroducido = 0;
         boolean repeticion = false;
         do {
@@ -81,6 +76,7 @@ public class Prueba {
                 teclado.nextLine();
             }
         } while (repeticion);
+        teclado.nextLine();
         return numeroIntroducido;
 
     }
