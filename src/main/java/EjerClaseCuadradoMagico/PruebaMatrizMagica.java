@@ -15,12 +15,12 @@ public class PruebaMatrizMagica {
         MatrizCuadrada matrizPorDefecto = new MatrizCuadrada();
 
         matrizPorDefecto.imprimir();
-        System.out.println("----------------Recorriendo fila 2------------------");
+        System.out.println("----------------Recorriendo fila 3------------------");
         matrizPorDefecto.recorrerFila(2);
-        System.out.println("\n----------------Recorriendo columna 3------------------");
+        System.out.println("\n----------------Recorriendo columna 4------------------");
         matrizPorDefecto.recorrerColumna(3);
         System.out.println("\n----------------Recorriendo columna y filas vecinas------------------");
-        matrizPorDefecto.recorrerVecinas(3, 3);
+        matrizPorDefecto.recorrerVecinas(0, 0);
 
     }
 }

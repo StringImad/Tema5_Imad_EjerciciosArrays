@@ -39,8 +39,8 @@ public class MatrizCuadrada {
         for (int i = 0; i < matriz.length; i++) {
             if (i == iFila) {
                 for (int j = 0; j < matriz[i].length; j++) {
-                    char asiento = matriz[i][j];
-                    System.out.print(asiento + "|");
+                    char letra = matriz[i][j];
+                    System.out.print(letra + "|");
                 }
             }
         }
@@ -50,8 +50,8 @@ public class MatrizCuadrada {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (j == jColumna) {
-                    char asiento = matriz[i][j];
-                    System.out.println(asiento + "|");
+                    char letra = matriz[i][j];
+                    System.out.println(letra + "|");
                 }
 
             }
@@ -60,37 +60,88 @@ public class MatrizCuadrada {
     }
 
     public void recorrerVecinas(int iFila, int jColumna) {
-        boolean seSale = false;
-        String vecinasJuntas = null, vecinasArriba = null, vecinasAbajo = null;
-        String vecinas = "";
-        String vecinasMayus = "";
+        String vArI, vA, vArD,
+                vI, buscada, vD,
+                vAbI, vAb, vAbD;
+        String vecinasArriba,
+                vecinasJuntas,
+                vecinasAbajo;
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
                 if (j == jColumna && i == iFila) {
+                    buscada = matriz[i][j] + "";
                     try {
-                        vecinas = matriz[i][j] + "";
-                        vecinasArriba = matriz[i - 1][j - 1] + "|" + matriz[i - 1][j] + "|" + matriz[i - 1][j + 1];
-                        vecinasJuntas = matriz[i][j - 1] + "|" + vecinas + "|" + matriz[i][j + 1];
-                        vecinasAbajo = matriz[i + 1][j - 1] + "|" + matriz[i + 1][j] + "|" + matriz[i + 1][j + 1];
-
-                        seSale = true;
+                        vArI = matriz[i - 1][j - 1] + "";
 
                     } catch (IndexOutOfBoundsException IOOBE) {
-                        System.out.println("Excepcion");
-                        seSale = false;
+                        vArI = "";
                     }
-                    if (seSale) {
-                        System.out.println(vecinasArriba);
-                        System.out.println(vecinasJuntas);
-                        System.out.println(vecinasAbajo);
+                    try {
+                        vA = matriz[i - 1][j] + "";
 
+                    } catch (IndexOutOfBoundsException IOOBE) {
+                        vA = "";
                     }
+                    try {
+                        vArD = matriz[i - 1][j + 1] + "";
+
+                    } catch (IndexOutOfBoundsException IOOBE) {
+                        vArD = "";
+                    }
+                    try {
+                        vI = matriz[i][j - 1] + "";
+                    } catch (IndexOutOfBoundsException IOOBE) {
+                        vI = "";
+                    }
+                    try {
+                        vD = matriz[i][j + 1] + "";
+                    } catch (IndexOutOfBoundsException IOOBE) {
+                        vD = "";
+                    }
+                    try {
+                        vAbI = matriz[i + 1][j - 1] + "";
+                    } catch (IndexOutOfBoundsException IOOBE) {
+                        vAbI = "";
+                    }
+                    try {
+                        vAb = matriz[i + 1][j] + "";
+
+                    } catch (IndexOutOfBoundsException IOOBE) {
+                        vAb = "";
+                    }
+                    try {
+                        vAbD = matriz[i + 1][j + 1] + "";
+
+                    } catch (IndexOutOfBoundsException IOOBE) {
+                        vAbD = "";
+                    }
+
+                    vecinasArriba = vAbI + "|" + vA + "|" + vArD;
+                    vecinasJuntas = vI + "|" + buscada + "|" + vD;
+                    vecinasAbajo = vAbI + "|" + vAb + "|" + vAbD;
+
+                    System.out.println(vecinasArriba);
+                    System.out.println(vecinasJuntas);
+                    System.out.println(vecinasAbajo);
+
                 }
 
             }
 
         }
+    }
+
+    private static String capturadorDeExcepciones(int posicion) {
+        String corregido = "";
+        try {
+            corregido = posicion + "";
+
+        } catch (IndexOutOfBoundsException IOOBE) {
+            corregido = "";
+        }
+        return corregido;
+
     }
 
     public void imprimir() {
